@@ -1,20 +1,26 @@
-name: Jekyll site CI
+<!DOCTYPE html>
+<html lang="en">
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine Request</title>
+  <style>
+    body {
+      background-color: #ffd8d8;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
 
-jobs:
-  build:
+    h1 {
+      color: #d60000;
+    }
+  </style>
+</head>
 
-    runs-on: ubuntu-latest
+<body>
+  <h1>Will you be my Valentine?</h1>
+</body>
 
-    steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+</html>
